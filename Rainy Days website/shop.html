@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RainyDays Shop - Explore our waterproof jackets.">
+    <title>Shop | RainyDays</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-section">
+            <img src="Images/logo.png" alt="RainyDays Logo" class="logo">
+        </div>
+
+        <div class="header-icons">
+          <a href="checkout/index.html" class="icon-button">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="shop-hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Explore Our Collection</h1>
+            <p>Browse waterproof and wind-resistant jackets built for adventure.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP PRODUCTS (API CONNECTED) -->
+<section class="shop-products-section">
+    <div class="shop-container">
+
+        <div class="shop-header">
+            <h2>All Products</h2>
+
+            <div class="shop-filter-buttons">
+                <button class="shop-filter-btn active" data-filter="all">All</button>
+                <button class="shop-filter-btn" data-filter="Male">Men</button>
+                <button class="shop-filter-btn" data-filter="Female">Women</button>
+            </div>
+        </div>
+
+        <!-- LOADER -->
+        <div id="loader" style="display:none; text-align:center; padding:20px;">
+            Loading products...
+        </div>
+
+        <!-- PRODUCTS FROM API -->
+        <div class="shop-products-grid" id="products">
+            <!-- Products loaded dynamically from API -->
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 RainyDays. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | RainyDays</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../shop.html">Shop</a></li>
+      </ul>
+    </nav>
+
+    <div class="logo-section">
+      <img src="../Images/logo.png" alt="RainyDays" class="logo">
+    </div>
+
+    <div class="header-icons">
+      <button class="icon-button" onclick="goToCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="product-page">
+    <div class="product-container" id="productContainer">
+      <div class="api-loader">Loading product...</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 RainyDays</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+const container = document.getElementById("productContainer");
+
+async function fetchProduct() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+      container.innerHTML = "<p>Product not found.</p>";
+      return;
+    }
+
+    const response = await fetch(`https://v2.api.noroff.dev/rainy-days/${id}`);
+
+    if (!response.ok) {
+      throw new Error("Product not found");
+    }
+
+    const data = await response.json();
+    const product = data.data;
+
+    displayProduct(product);
+
+  } catch (error) {
+    container.innerHTML = "<p>Something went wrong. Please try again.</p>";
+  }
+}
+
+function displayProduct(product) {
+  container.innerHTML = `
+    <div class="product-detail">
+      <div class="product-image">
+        <img src="${product.images[0].url}" alt="${product.title}">
+      </div>
+
+      <div class="product-info-detail">
+        <h1>${product.title}</h1>
+        <p class="product-price">$${product.price}</p>
+        <p class="product-description">${product.description}</p>
+        <p><strong>Gender:</strong> ${product.gender}</p>
+        <button class="add-to-cart-btn" onclick='addToCart(${JSON.stringify(product)})'>
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function goToCart() {
+  window.location.href = "../checkout/index.html";
+}
+
+fetchProduct();
+</script>
+
+</body>
+</html>
