@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RainyDays - Premium outdoor clothing pushing the comfort zone.">
+    <title>RainyDays - Pushing the Comfort Zone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-section">
+            <img src="Images/logo.png" alt="RainyDays Logo" class="logo">
+        </div>
+
+        <div class="header-icons">
+            <a href="checkout/index.html" class="icon-button">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <button class="icon-button menu-toggle" id="menuToggle">
+             <i class="fa-solid fa-bars"></i>
+           </button>
+        
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <img src="Images/logo.png" alt="RainyDays" class="logo">
+
+        <button class="icon-button close-button" id="closeMenu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <ul class="mobile-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="checkout/index.html">Cart</a></li>
+    </ul>
+</div>
+<main>
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Built For Rain. Ready For Adventure.</h1>
+        <p>Pushing The Comfort Zone</p>
+        <a href="shop.html" class="hero-btn">Explore The Collection</a>
+    </div>
+</section>
+
+<!-- NEW ARRIVALS (API CONNECTED) -->
+<section class="new-arrivals-section">
+    <div class="new-arrivals-container">
+
+        <div class="new-arrivals-header">
+            <h2>New Arrivals</h2>
+            <a href="shop.html" class="view-all-btn">View All Products</a>
+        </div>
+
+        <!-- LOADER -->
+        <div id="loader" style="display:none; text-align:center; padding:20px;">
+            Loading products...
+        </div>
+
+        <!-- PRODUCTS FROM API -->
+        <div class="products-grid" id="products">
+            <!-- Produkter lastes inn automatisk via script.js -->
+        </div>
+
+    </div>
+</section>
+
+<!-- PROMO SECTION -->
+<section class="promo-section">
+    <div class="promo-container">
+        <div class="promo-content">
+            <h2>Save Up To 75%</h2>
+            <p>Stay Dry For Less With Selected Jackets.</p>
+            <a href="shop.html" class="promo-btn">Shop Now</a>
+        </div>
+        <div class="promo-image">
+            <img src="Images/sec4.webp" alt="RainyDays Jackets">
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 RainyDays. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- SCRIPT (ONLY ONE) -->
+<script src="script.js"></script>
+
+</body>
+</html>
